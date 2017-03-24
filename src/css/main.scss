@@ -1,21 +1,60 @@
-// .pullquote-paragraph{
-//   color: #333 !important;
-// }
-//
-// .drop-cap{
-//   color: #333 !important;
-// }
-//
-// .in-body-link--immersive{
-//   color: #333 !important;
-// }
 @import "_fonts";
 @import "_mq";
 
+.drop-cap__inner,
+.pullquote-paragraph {
+    font-weight: 600 !important;
+    color: #333333 !important;
+}
+
+.content--immersive-article .section-rule {
+    background-color: #333333 !important;
+    width: 100% !important;
+    height: 6px !important;
+}
+
 .parkour-image {
-  height: 600px;
-  background-color: #333;
+  background-color: #ffffff;
   position: relative;
+
+  .caption {
+      @include mq($until: leftCol) {
+          padding-top: 6px;
+          padding-bottom: 12px;
+      }
+  }
+
+  .wrapper {
+      height: 600px;
+  }
+
+  h2.parkour-text {
+      color: #ffffff;
+      font-size: 32px;
+      line-height: .95em;
+      font-family: 'Guardian Egyptian Web', serif;
+      font-weight: 800;
+      position: absolute;
+      display: inline-block;
+      z-index: 0;
+
+      span {
+        display: block;
+        opacity: 0;
+      }
+
+      @include mq(mobile) {
+          font-size: 36px;
+      }
+
+      @include mq(phablet) {
+          font-size: 42px;
+      }
+
+      @include mq(tablet) {
+          font-size: 62px;
+      }
+  }
 
   .wrapper-one {
     position: relative;
@@ -37,27 +76,31 @@
       left: 10px;
       right: 10px;
 
+      @include mq(mobileLandscape) {
+          left: 60px;
+      }
 
       @include mq(tablet) {
           width: 400px;
-          left: 60px;
+          left: 310px;
           right: auto;
-          transform: translateY(-90px);
+          transform: translateY(-190px);
       }
 
       @include mq(desktop) {
-          left: 180px;
+          left: 152px;
           max-width: 550px;
           width: 550px;
+          transform: translateY(-90px);
       }
 
       @include mq(leftCol) {
+           z-index: 1;
           max-width: 550px;
           width: 550px;
       }
 
       @include mq(wide) {
-          z-index: 1;
           left: 260px;
       }
 
@@ -67,29 +110,18 @@
   }
 
   h2.parkour-text-one {
-      color: #ffffff;
-      font-size: 42px;
-      line-height: .9em;
-      font-family: 'Guardian Egyptian Web', serif;
-      font-weight: 800;
       margin: 0;
-      position: absolute;
-      display: inline-block;
-      z-index: 0;
       right: 20px;
       bottom: 20px;
 
-      span{
-        display: block;
-        opacity: 0;
-      }
-
-      @include mq(tablet) {
-          font-size: 62px;
-      }
-
       @include mq(wide) {
-          right: 100px;
+          right: 70px;
+      }
+
+      span {
+          &:nth-child(2) {
+              transform: translateX(-48%);
+          }
       }
   }
 
@@ -105,68 +137,56 @@
   }
 
   h2.parkour-text-two {
-      color: #ffffff;
-      font-size: 42px;
-      line-height: .9em;
-      font-family: 'Guardian Egyptian Web', serif;
-      font-weight: 800;
       margin: auto;
       text-align: center;
-
-      position: absolute;
-      display: inline-block;
       left: 0;
       right: 0;
       bottom: 48px;
-      z-index: 0;
 
       span {
-          display: block;
-      }
+          &:nth-child(1) {
+              transform: translateX(-2%);
+          }
 
-      @include mq(tablet) {
-          font-size: 62px;
+          &:nth-child(2) {
+              transform: translateX(2%);
+          }
       }
   }
+
   .wrapper-three {
     position: relative;
     height: 600px;
     width: 100%;
     display: block;
     overflow: hidden;
-    background-image: url("https://interactive.guim.co.uk/embed//article-embeds/parkour_03/hashed/mustang.87fd61ff.jpg");
+    background-image: url("https://interactive.guim.co.uk/embed/article-embeds/parkour_03/hashed/mustang.87fd61ff.jpg");
     background-size: cover;
     background-position: center;
   }
 
-  h2 {
-    color: #ffffff;
-    font-size: 32px;
-    line-height: .9em;
-    font-family: 'Guardian Egyptian Web', serif;
-    font-weight: 800;
+  h2.parkour-text-three {
     margin: 0;
-    position: absolute;
-    display: inline-block;
-    z-index: 0;
-    right: 20px;
     bottom: 20px;
-
-    span {
-        display: block;
-        opacity: 0;
-    }
-
-    @include mq(phablet) {
-        font-size: 42px;
-    }
+    right: 20px;
 
     @include mq(tablet) {
-        font-size: 62px;
+        left: 113px;
+        right: auto;
     }
 
-    @include mq(wide) {
-        right: 100px;
+    @include mq(desktop) {
+        left: 180px;
+    }
+
+    @include mq(leftCol) {
+        left: 112px;
+    }
+
+    span {
+        &:nth-child(2) {
+            transform: translateX(-24%);
+        }
     }
   }
 
@@ -174,32 +194,43 @@
     position: relative;
     height: 600px;
     width: 100%;
-    display: block;
+    background-image: url("https://s3.amazonaws.com/gdn-cdn/embed/article-embeds/parkour_04/hashed/rooftop.9bd9ee1d.jpg");
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
   }
 
-  .parkour-background-four {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 800px;
-    transform: translateY(68px);
+  .concrete {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 321px;
 
-    img {
-      height: 109%;
-      width: auto;
-
-      @include mq($from: desktop){
-        height: auto;
-        width: 109%;
+      @include mq(tablet) {
+          left: 70px;
+          right: auto;
       }
-    }
+
+      @include mq(desktop) {
+          left: 190px;
+          right: auto;
+      }
+
+      @include mq(wide) {
+          left: 360px;
+      }
   }
 
   .person-four {
     position: absolute;
-    bottom: 0;
-    height: 550px;
+    bottom: 80px;
+    height: 447px;
+    transform: translateY(-120px);
+    left: 0;
+    right: 0;
+    margin: auto;
 
     @include mq(tablet) {
         left: 60px;
@@ -211,60 +242,46 @@
     }
 
     @include mq(wide) {
-        z-index: 1;
         left: 360px;
     }
 
     img {
         width: auto;
-        height: 550px;
+        height: 447px;
     }
   }
 
   h2.parkour-text-four {
-    color: #ffffff;
-    font-size: 32px;
-    line-height: .9em;
-    font-family: 'Guardian Egyptian Web', serif;
-    font-weight: 800;
     margin: 0;
-    position: absolute;
-    display: inline-block;
-    z-index: 0;
     right: 20px;
     bottom: 20px;
 
     span {
-        display: block;
-        opacity: 0;
-    }
+        &:nth-child(2) {
+            transform: translateX(-20%);
 
-    @include mq(phablet) {
-        font-size: 42px;
-    }
-
-    @include mq(tablet) {
-        font-size: 62px;
-    }
-
-    @include mq(wide) {
-        right: 100px;
+            @include mq($until: phablet) {
+                transform: translateX(-10%);
+            }
+        }
     }
   }
 
   .fadein span {
-
       &:nth-child(1) {
           animation: fadeIn 1s 0s ease-in forwards;
       }
 
       &:nth-child(2) {
-          transform: translateX(-48%);
           animation: fadeIn 1s .5s ease-in forwards;
       }
 
       &:nth-child(3) {
           animation: fadeIn 1s 1s ease-in forwards;
+      }
+
+      &:nth-child(4) {
+          animation: fadeIn 1s 1.5s ease-in forwards;
       }
   }
 
