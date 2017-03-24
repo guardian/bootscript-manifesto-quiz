@@ -9,11 +9,25 @@ var data;
 var comingSoonIndex = 0;
 
 export function init(dom, context, config, mediator) {
-  var contentBody = document.querySelector('.content__article-body');
+  var contentBody;
+  var websiteContent = document.querySelector('.content__article-body');
   var headline = document.querySelector('.content__headline--immersive ');
+  var appContent = document.querySelector('.article--immersive .article__body .from-content-api');
+
   if(headline) {
       headline.remove();
   }
+  console.log('running');
+
+  if(websiteContent){
+    contentBody = websiteContent;
+    console.log('web')
+  }else if(appContent) {
+    contentBody = appContent;
+    console.log('app')
+    console.log(appContent);
+  }
+
   var parkourImageOne = document.createElement('figure');
   parkourImageOne.setAttribute('class', 'element--immersive parkour-image parkour-image-one');
   parkourImageOne.innerHTML = '<div class="wrapper wrapper-one"><div class="person-one parkour-cutout-one"><img src="https://interactive.guim.co.uk/embed/article-embeds/parkour_01/hashed/rooftop-overlay.7205a2b7.png"></div><h2 class="parkour-text parkour-text-one"><span>He was</span><span>a firework,</span><span>a free spirit</span></h2></div><div class="caption"><span class="inline-information inline-icon reveal-caption-icon centered-icon rounded-icon"><svg width="6" height="14" viewBox="0 0 6 14" class="reveal-caption-icon__svg centered-icon__svg rounded-icon__svg inline-information__svg inline-icon__svg"><path d="M4.6 12l-.4 1.4c-.7.2-1.9.6-3 .6-.7 0-1.2-.2-1.2-.9 0-.2 0-.3.1-.5l2-6.7H.7l.4-1.5 4.2-.6h.2L3 12h1.6zm-.3-9.2c-.9 0-1.4-.5-1.4-1.3C2.9.5 3.7 0 4.6 0 5.4 0 6 .5 6 1.3c0 1-.8 1.5-1.7 1.5z"></path></svg></span> Nye Newman in La Chapelle des Buis in France, in April 2016. Photograph: Roxanne Valnet/ATB Parkour in Paris</div>';
