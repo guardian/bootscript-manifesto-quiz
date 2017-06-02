@@ -119,7 +119,6 @@ body {
 #submit-answers {
     width: auto;
     display: inline-block;
-    background-color: #005689;
     color: #fff;
     font-family: 'Guardian Text Sans Web', Helvetica, Arial, sans-serif;
     line-height: 36px;
@@ -129,11 +128,30 @@ body {
     position: relative;
     font-size: 18px;
     font-weight: bold;
-    cursor: pointer;
     margin-top: -1px;
     margin-bottom: 24px;
+    background-color: rgba(113, 125, 133, 0.8);
+    color: rgba(255,255,255,0.8);
+    cursor: default;
+    opacity: 0.8;
     &:hover {
-        background-color: #00456E;
+        opacity: 0.75;
+    }
+    &:before {
+        opacity: 0.6;
+    }
+    &.active {
+        opacity: 1;
+        color: #fff;
+        cursor: pointer;
+        background-color: #005689;
+        &:hover {
+            background-color: #00456E;
+            opacity: 1;
+        }
+        &:before {
+            opacity: 1;
+        }
     }
     &:before {
         content: '';
@@ -142,13 +160,108 @@ body {
         // background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><g fill="none" fill-rule="evenodd"><path fill="#FFF" d="M7.9 15.07l-.9.9 4.55 6.37h.43l13-13.45-.9-.9-12.1 10.94"/></g></svg>');
         background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M7.9%2015.07l-.9.9%204.55%206.37h.43l13-13.45-.9-.9-12.1%2010.94%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
         background-repeat: no-repeat;
-        background-size: 36px 36px;
-        background-position: center;
+        background-size: 34px 34px;
+        background-position: 1px 1px;
         width: 36px;
         height: 36px;
         position: absolute;
         top: 0;
         left: 0;
     }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+
+.result-wrapper {
+    font-size: 18px;
+    color: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 3px 8px 12px;
+    margin: 24px 0;
+    .heading {
+        font-family: 'Guardian Egyptian Web', 'Guardian Text Egyptian Web', Georgia, serif;
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 800;
+        margin-bottom: 9px;
+        display: inline-block;
+        margin-top: -11px;
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 56px;
+            height: 56px;
+            border-radius: 100%;
+            margin-right: 10px;
+            background-size: 56px 56px;
+            background-repeat: no-repeat;
+            margin-top: -6px;
+        }
+    }
+     &.con {
+          background-color: $c-con;
+          .heading:before {
+              background-color: $c-con-distant;
+              background-image: url('https://uploads.guim.co.uk/2017/06/02/May@2x.png');
+          }
+     }
+
+     &.libdem {
+          background-color: $c-libdem;
+          .heading:before {
+              background-color: $c-libdem-distant;
+              background-image: url('https://uploads.guim.co.uk/2017/06/02/Farron@2x.png');
+          }
+     }
+
+     &.lab {
+          background-color: $c-lab;
+          .heading:before {
+              background-color: $c-lab-distant;
+              background-image: url('https://uploads.guim.co.uk/2017/06/02/Corbyb@2x.png');
+          }
+     }
+
+     &.snp {
+          background-color: $c-snp;
+          .heading:before {
+              background-color: $c-snp-distant;
+              background-image: url('https://uploads.guim.co.uk/2017/06/02/Sturgeon@2x.png');
+          }
+     }
+
+     &.green {
+          background-color: $c-green;
+          .heading:before {
+              display: none;
+            //   background-color: $c-green-distant;
+          }
+          .card-icon {
+              display: none;
+          }
+     }
+
+     &.ukip {
+          background-color: $c-ukip;
+          .heading:before {
+              display: none;
+            //   background-color: $c-ukip-distant;
+          }
+          .card-icon {
+              display: none;
+          }
+     }
+
+     &.snp,
+     &.libdem {
+         &, a {
+             color: #333;
+         }
+     }
 
 }
