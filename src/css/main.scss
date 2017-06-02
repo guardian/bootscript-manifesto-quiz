@@ -1,354 +1,114 @@
-@import "_fonts";
-@import "_mq";
+@import "colours";
+@import "mq";
+@import "header";
 
-.drop-cap__inner,
-.pullquote-paragraph {
-    font-weight: 600 !important;
-    color: #333333 !important;
+html,
+body {
+    overflow-x: hidden;
 }
 
-.content--immersive-article .element-pullquote .inline-quote svg {
-    fill: #767676;
-}
-
-.content--immersive-article {
-    .in-body-link--immersive {
-        color: #000000 !important;
-        border-color: #bdbdbd !important;
-
-        &:hover,
-        &:active {
-            border-color: #333333 !important;
-        }
-
-        .section-rule {
-            background-color: #333333 !important;
-            width: 100% !important;
-            height: 6px !important;
-        }
+.atom-quiz__question .question-header {
+    position: relative;
+    border-bottom: 2px solid rgba(212, 217, 223, 0.5);
+    margin-right: -10px;
+    @include mq(mobileLandscape) {
+        margin-right: 0;
     }
-}
-
-.ios,
-.android {
-    .article--immersive {
-        a {
-            color: #000000 !important;
-            border-color: #bdbdbd !important;
-
-            &:hover,
-            &:active {
-                border-color: #333333 !important;
+    margin-bottom: 6px;
+    margin-top: 24px;
+    .graphic {
+        .illustration {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 2;
+            transform-origin: bottom right;
+            transform: scale(0.9);
+            @include mq(340px) {
+                right: 10px;
+            }
+            @include mq(360px) {
+                transform: scale(1);
+            }
+            @include mq(mobileLandscape) {
+                right: 10%;
             }
         }
-
-        .element-pullquote blockquote p,
-        .has__dropcap:first-letter {
-            font-weight: 600 !important;
-            color: #333333 !important;
-        }
-    }
-}
-
-.parkour-image {
-  background-color: #ffffff;
-  position: relative;
-
-  .caption {
-      @include mq($until: leftCol) {
-          padding-top: 6px;
-          padding-bottom: 12px;
-      }
-  }
-
-  .wrapper {
-      height: 600px;
-  }
-
-  h2.parkour-text {
-      color: #ffffff;
-      font-size: 32px;
-      line-height: .95em;
-      font-family: 'Guardian Egyptian Web', serif;
-      font-weight: 800;
-      position: absolute;
-      display: inline-block;
-      z-index: 0;
-
-      span {
-        display: block;
-        opacity: 0;
-      }
-
-      @include mq(mobile) {
-          font-size: 36px;
-      }
-
-      @include mq(phablet) {
-          font-size: 42px;
-      }
-
-      @include mq(tablet) {
-          font-size: 62px;
-      }
-  }
-
-  .wrapper-one {
-    position: relative;
-    height: 600px;
-    width: 100%;
-    display: block;
-    background-image: url("https://interactive.guim.co.uk/embed/article-embeds/parkour_02/hashed/rooftop.186de53a.jpg");
-    background-size: cover;
-    background-position: left;
-    overflow: hidden;
-  }
-
-  .person-one {
-      position: absolute;
-      bottom: 60px;
-      -webkit-transform: translateY(-220px);
-      -ms-transform: translateY(-220px);
-      transform: translateY(-220px);
-      width: auto;
-      max-width: 400px;
-      left: 10px;
-      right: 10px;
-
-      @include mq(mobileLandscape) {
-          left: 60px;
-      }
-
-      @include mq(tablet) {
-          width: 400px;
-          left: 310px;
-          right: auto;
-          -webkit-transform: translateY(-190px);
-          -ms-transform: translateY(-190px);
-          transform: translateY(-190px);
-      }
-
-      @include mq(desktop) {
-          left: 152px;
-          max-width: 550px;
-          width: 550px;
-          -webkit-transform: translateY(-90px);
-          -ms-transform: translateY(-90px);
-          transform: translateY(-90px);
-      }
-
-      @include mq(leftCol) {
-           z-index: 1;
-          max-width: 550px;
-          width: 550px;
-      }
-
-      @include mq(wide) {
-          left: 260px;
-      }
-
-      img {
-          width: 100%;
-      }
-  }
-
-  h2.parkour-text-one {
-      margin: 0;
-      right: 20px;
-      bottom: 20px;
-
-      @include mq(wide) {
-          right: 70px;
-      }
-
-      span {
-          &:nth-child(2) {
-              -webkit-transform: translateX(-48%);
-              -ms-transform: translateX(-48%);
-              transform: translateX(-48%);
-          }
-      }
-  }
-
-  .wrapper-two {
-      position: relative;
-      height: 600px;
-      width: 100%;
-      display: block;
-      background-image: url("https://interactive.guim.co.uk/embed/article-embeds/parkour_02/hashed/rooftop.c7996b79.jpg");
-      background-size: cover;
-      background-position: center;
-      overflow: hidden;
-  }
-
-  h2.parkour-text-two {
-      margin: auto;
-      text-align: center;
-      left: 0;
-      right: 0;
-      bottom: 48px;
-
-      span {
-          &:nth-child(1) {
-              -webkit-transform: translateX(-2%);
-              -ms-transform: translateX(-2%);
-              transform: translateX(-2%);
-          }
-
-          &:nth-child(2) {
-              -webkit-transform: translateX(2%);
-              -ms-transform: translateX(24%);
-              transform: translateX(2%);
-          }
-      }
-  }
-
-  .wrapper-three {
-    position: relative;
-    height: 600px;
-    width: 100%;
-    display: block;
-    overflow: hidden;
-    background-image: url("https://interactive.guim.co.uk/embed/article-embeds/parkour_03/hashed/mustang.87fd61ff.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-
-  h2.parkour-text-three {
-    margin: 0;
-    bottom: 20px;
-    right: 20px;
-
-    @include mq(tablet) {
-        left: 113px;
-        right: auto;
-    }
-
-    @include mq(desktop) {
-        left: 180px;
-    }
-
-    @include mq(leftCol) {
-        left: 112px;
-    }
-
-    span {
-        &:nth-child(2) {
-            -webkit-transform: translateX(-24%);
-            -ms-transform: translateX(-24%);
-            transform: translateX(-24%);
-        }
-    }
-  }
-
-  .wrapper-four {
-    position: relative;
-    height: 600px;
-    width: 100%;
-    background-image: url("https://interactive.guim.co.uk/embed/article-embeds/parkour_04/hashed/rooftop.9bd9ee1d.jpg");
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-  }
-
-  .concrete {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: 321px;
-
-      @include mq(tablet) {
-          left: 70px;
-          right: auto;
-      }
-
-      @include mq(desktop) {
-          left: 190px;
-          right: auto;
-      }
-
-      @include mq(wide) {
-          left: 360px;
-      }
-  }
-
-  .person-four {
-    position: absolute;
-    bottom: 80px;
-    height: 447px;
-    -webkit-transform: translateX(-120px);
-    -ms-transform: translateX(-120px);
-    transform: translateY(-120px);
-    left: 0;
-    right: 0;
-    margin: auto;
-
-    @include mq(tablet) {
-        left: 60px;
-        right: auto;
-    }
-
-    @include mq(desktop) {
-        left: 180px;
-    }
-
-    @include mq(wide) {
-        left: 360px;
-    }
-
-    img {
-        width: auto;
-        height: 447px;
-    }
-  }
-
-  h2.parkour-text-four {
-    margin: 0;
-    right: 20px;
-    bottom: 20px;
-
-    span {
-        &:nth-child(2) {
-            -webkit-transform: translateX(-20%);
-            -ms-transform: translateX(-20%);
-            transform: translateX(-20%);
-
-            @include mq($until: phablet) {
-                -webkit-transform: translateX(-10%);
-                -ms-transform: translateX(-10%);
-                transform: translateX(-10%);
+        .bars {
+            margin-right: -10px;
+            overflow: hidden;
+            padding-left: 200px;
+            @include mq(mobileLandscape) {
+                padding-left: 280px;
+                margin-right: 0px;
+            }
+            .bar {
+                height: 24px;
+                display: block;
+                &.bar-1 {
+                    opacity: 1;
+                    transform: translateX(0);
+                    @include mq(mobileLandscape) {
+                        transform: translateX(10px);
+                    }
+                }
+                &.bar-2 {
+                    opacity: 0.7;
+                    transform: translateX(-10px);
+                    @include mq(mobileLandscape) {
+                        transform: translateX(0);
+                    }
+                }
+                &.bar-3 {
+                    opacity: 0.5;
+                    transform: translateX(20px);
+                    @include mq(mobileLandscape) {
+                        transform: translateX(30px);
+                    }
+                }
+                &.bar-4 {
+                    opacity: 0.3;
+                    transform: translateX(5px);
+                    @include mq(mobileLandscape) {
+                        transform: translateX(15px);
+                    }
+                }
             }
         }
     }
-  }
+    .atom-quiz__question-text {
+        width: 180px;
+        @include mq(mobileLandscape) {
+            width: 260px;
+            font-size: 26px;
+            line-height: 30px;
+        }
+        height: auto;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-family: 'Guardian Egyptian Web', 'Guardian Text Egyptian Web', Georgia, serif;
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 600;
+        margin: 0 0 2px;
+        color: #005689;
+        &:before {
+            content: '';
+            padding: 0;
+        }
+    }
+}
 
-  .fadein span {
-      &:nth-child(1) {
-          animation: fadeIn 1s 0s ease-in forwards;
-      }
-
-      &:nth-child(2) {
-          animation: fadeIn 1s .5s ease-in forwards;
-      }
-
-      &:nth-child(3) {
-          animation: fadeIn 1s 1s ease-in forwards;
-      }
-
-      &:nth-child(4) {
-          animation: fadeIn 1s 1.5s ease-in forwards;
-      }
-  }
-
-  @-webkit-keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 100; }
-  }
-
-  @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 100; }
-  }
+.atom-quiz__question {
+    margin: 0 0 24px;
+    :checked+.atom-quiz__answer__item {
+        background-color: $c-grey;
+        color: #fff;
+        &:before {
+            box-shadow: none;
+            background-color: $c-bar;
+            border: 1px solid #fff;
+        }
+    }
 }
