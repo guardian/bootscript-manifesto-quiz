@@ -107,8 +107,48 @@ body {
         color: #fff;
         &:before {
             box-shadow: none;
-            background-color: $c-bar;
-            border: 1px solid #fff;
+            background-color: hsl(204, 8%, 30%);
+            border: 1px solid #ececec;
         }
     }
+}
+
+.button--primary {
+    display: none;
+}
+#submit-answers {
+    width: auto;
+    display: inline-block;
+    background-color: #005689;
+    color: #fff;
+    font-family: 'Guardian Text Sans Web', Helvetica, Arial, sans-serif;
+    line-height: 36px;
+    height: 36px;
+    border-radius: 18px;
+    padding: 0 18px 0 40px;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -1px;
+    margin-bottom: 24px;
+    &:hover {
+        background-color: #00456E;
+    }
+    &:before {
+        content: '';
+        display: inline-block;
+        margin-right: 28px;
+        // background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><g fill="none" fill-rule="evenodd"><path fill="#FFF" d="M7.9 15.07l-.9.9 4.55 6.37h.43l13-13.45-.9-.9-12.1 10.94"/></g></svg>');
+        background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M7.9%2015.07l-.9.9%204.55%206.37h.43l13-13.45-.9-.9-12.1%2010.94%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        background-size: 36px 36px;
+        background-position: center;
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
 }

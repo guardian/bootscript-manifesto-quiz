@@ -110,5 +110,10 @@ export function init(dom, context, config, mediator) {
         header.appendChild(questionText);
     }
 
+    var submitButton = document.createElement('div');
+    submitButton.setAttribute('id', 'submit-answers');
+    submitButton.innerText = 'Submit answers';
+    var quizAtom = document.querySelector('.element-atom');
+    quizAtom.appendChild(submitButton);
 
 }
