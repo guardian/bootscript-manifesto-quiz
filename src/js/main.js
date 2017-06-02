@@ -183,10 +183,12 @@ function scoreQuiz() {
 
     var totalPoints = 0;
     Object.keys(points).forEach(function(party) {
-        totalPoints = totalPoints + points[party];
+        if (parseInt(points[party])) {
+            totalPoints = totalPoints + parseInt(points[party]);
+        }
     });
 
-    if (totalPoints > 9) {
+    if (totalPoints > 2) {
         var result = sortedParties[0];
 
         var buckets = {
@@ -217,6 +219,11 @@ function scoreQuiz() {
 
         var quizAtom = document.querySelector('.element-atom');
         quizAtom.appendChild(resultElement);
+
+        allInputs = document.querySelectorAll('.element-atom input');
+        for (var k = 0; k < allAnswers.length; k++) {
+            allAnswers[k].setAttribute('disabled', 'true');
+        }
 
     }
 
@@ -265,13 +272,15 @@ function updateSubmitButton() {
 
     var totalPoints = 0;
     Object.keys(points).forEach(function(party) {
-        console.log(party)
-        console.log(points[party])
-        totalPoints = totalPoints + points[party];
+        // console.log(party)
+        // console.log(points[party])
+        if (parseInt(points[party])) {
+            totalPoints = totalPoints + parseInt(points[party]);
+        }
     });
-    console.log(totalPoints);
+    // console.log(totalPoints);
 
-    if (totalPoints > 9) {
+    if (totalPoints > 2) {
         submitButton.classList.add('active');
     }
 
