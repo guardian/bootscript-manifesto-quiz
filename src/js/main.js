@@ -71,8 +71,8 @@ export function init(dom, context, config, mediator) {
         }, {
             n: 12,
             group: "Workers rights",
-            highlight: "#B82266",
-            image: false
+            highlight: "#507892",
+            image: "https://uploads.guim.co.uk/2017/06/05/workers-rights.svg"
         }
     ];
 
