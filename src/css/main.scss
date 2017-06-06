@@ -115,6 +115,11 @@ body {
 
 .button--primary {
     display: none;
+    body.ios &,
+    body.android &,
+    body.windows & {
+        display: block;
+    }
 }
 
 
@@ -172,6 +177,12 @@ body {
     }
 
     &.hidden {
+        display: none !important;
+    }
+
+    body.ios &,
+    body.android &,
+    body.windows & {
         display: none;
     }
 }
